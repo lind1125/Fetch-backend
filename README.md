@@ -18,4 +18,4 @@
 | POST | '/Profile/:dogid' | Create one of your dog's profile |
 | GET | '/Dogs' | View other dogs (random from database) |
 | POST | '/Dogs/:dogid' | Add a dog your your likes (this one I'm not sure about) |
-| GET | '/Matches' | View your matches |
+| GET | '/Profile/:dogid/Matches' | View your matches |
