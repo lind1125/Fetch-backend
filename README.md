@@ -18,4 +18,9 @@
 | POST | '/Profile/:dogid' | Create one of your dog's profile |
 | GET | '/Dogs' | View other dogs (random from database) |
 | POST | '/Dogs/:dogid' | Add a dog your your likes (this one I'm not sure about) |
-| GET | '/Profile/:dogid/Matches' | View your matches |
+| GET | '/Profile/:dogid/Matches' | View your dog's matches |
+
+
+
+Link to ODM on Lucid Chart 
+https://lucid.app/lucidchart/46ce42b4-8d28-4635-8980-9d130cf57498/edit?page=0_0#
