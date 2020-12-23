@@ -22,7 +22,7 @@
 
 ### ODM: 
 
-('./Fetch.jpg')['./Fetch.jpg']
+!['Fetch.jpeg'](Fetch.jpeg)
 
 Link to ODM on Lucid Chart:
 
