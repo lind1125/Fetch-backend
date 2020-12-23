@@ -15,9 +15,9 @@
 | GET | '/Profile/:dogid' | View data on one of your dogs |
 | PUT | '/Profile/:dogid' | Update one of your dog's profiles |
 | DELETE | '/Profile/:dogid' | Delete one of your dog's profile |
+| PUT | '/Profile/:dogid/:dogid2' | Add a dog2 your your likes (this one I'm not sure about) |
 | POST | '/Profile/:dogid' | Create one of your dog's profile |
 | GET | '/Dogs' | View other dogs (random from database) |
-| POST | '/Dogs/:dogid' | Add a dog your your likes (this one I'm not sure about) |
 | GET | '/Profile/:dogid/Matches' | View your dog's matches |
 
 ### ODM: 
