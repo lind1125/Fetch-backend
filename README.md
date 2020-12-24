@@ -16,7 +16,7 @@
 | PUT | '/profile' | Update your own profile |
 | DELETE | '/profile' | Delete your own profile |
 | POST | '/profile' | Create your own profile |
-| POST | '/profile/new' | Form to create a new dog on your own profile |
+| GET | '/profile/new' | Form to create a new dog on your own profile |
 | GET | '/profile/:dogid' | View data on one of your dogs |
 | POST | '/profile/:dogid' | Create one of your dog's profile |
 | PUT | '/profile/:dogid' | Update one of your dog's profiles |
