@@ -10,9 +10,9 @@ module.exports = function(app) {
         );
         next();
     })
-    // set up signup route and pass middlewares to check username,email and roles
+    // set up signup route and pass middlewares to check username,email
     app.post("/api/auth/signup", 
-    [verifySignup.checkDuplicateUsernameOrEmail, verifySignup.checkRolesExisted],
+    [verifySignup.checkDuplicateUsernameOrEmail],
     controller.signup
     )
     // handle sign
