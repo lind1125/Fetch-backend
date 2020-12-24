@@ -25,9 +25,10 @@
 | PUT | '/profile/:dogid' | Update one of your dog's profiles |
 | DELETE | '/profile/:dogid' | Delete one of your dog's profile |
 | ----------- | ----------- | ----------- |
+| GET | '/profile/:dogid/dogs' | View other dogs (random from database based on criteria) |
 | PUT | '/profile/:dogid/add' | Add a dog to your dog's likes (this one I'm not sure about) |
 | GET | '/profile/:dogid/matches' | View your dog's matches |
-| GET | '/profile/:dogid/dogs' | View other dogs (random from database based on criteria) |
+
 
 
 ### ODM: 
