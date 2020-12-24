@@ -5,7 +5,7 @@ const db = {}
 
 db.mongoose = mongoose
 db.user = require('./user.model')
-// db.dog = require('./dog.model')
+db.dog = require('./dog.model')
 
 
 module.exports = db
