@@ -1,5 +1,5 @@
-const express = require('express') 
-const bodyParser = require('body-parser') 
+const express = require('express')
+const bodyParser = require('body-parser')
 const dbConfig = require('./config/db.config')
 const cors = require('cors')
 const mongoose = require("mongoose");
@@ -16,7 +16,7 @@ app.use(bodyParser.urlencoded({extended: true}))
 
 // SETUP MONGOOSE
 const db = require('./models/')
-
+const Dog = db.dog
 // connect to mongo database
 db.mongoose.connect(`mongodb://${dbConfig.HOST}:${dbConfig.PORT}/${dbConfig.DB}`, {
     useNewUrlParser: true,
@@ -24,6 +24,7 @@ db.mongoose.connect(`mongodb://${dbConfig.HOST}:${dbConfig.PORT}/${dbConfig.DB}`
   })
   .then(() => {
     console.log("Successfully connect to MongoDB.");
+    testDog()
   })
   .catch(err => {
     console.error("Connection error", err);
@@ -45,3 +46,10 @@ app.listen(PORT, ()=> {
     console.log(`Server running on ${PORT}`)
 })
 
+// const testDog = () => {
+//   const homer = new Dog({
+//     name: "Homer",
+//     preferences: {min_age: 6, max_age: 10, min_size: "small", max_size:"large"}
+//   })
+//   homer.save()
+// }
