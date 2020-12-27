@@ -3,7 +3,7 @@ const bodyParser = require('body-parser')
 const dbConfig = require('./config/db.config')
 const cors = require('cors')
 const mongoose = require("mongoose");
-
+const test = require('./testDogsandUsers')
 const app = express()
 
 app.use(cors())
@@ -24,7 +24,7 @@ db.mongoose.connect(`mongodb://${dbConfig.HOST}:${dbConfig.PORT}/${dbConfig.DB}`
   })
   .then(() => {
     console.log("Successfully connect to MongoDB.");
-    //testDog()
+    test()
   })
   .catch(err => {
     console.error("Connection error", err);

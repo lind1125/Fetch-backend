@@ -12,6 +12,15 @@
     "mongoose": "^5.11.8"
   },
   "devDependencies": {},
+  "eslintConfig": {
+    "parserOptions" :{
+      "ecmaVersion" :8
+    },
+  "env": {
+    "node":true,
+    "es6": true
+  }
+},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },

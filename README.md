@@ -8,15 +8,15 @@
 | Verb | Endpoint | Action |
 | ----------- | ----------- | ----------- |
 | GET | '/' | Home page |
-| GET | '/auth/signin' | Signin page |
-| POST | '/auth/signin' | Signin page post route |
-| GET | '/auth/signup' | Signup page |
+| GET | '/auth/signin' | Signin page √|
+| POST | '/auth/signin' | Signin page post route √|
+| GET | '/auth/signup' | Signup page √|
 | POST | '/auth/signup' | Signup page |
-| ----------- | ----------- | ----------- |
-| GET | '/profile' | View your own profile  - index shows your info and list of your dogs|
+| ----------- | ----------- | ----------- √|
+| GET | '/profile' √| View your own profile  - index shows your info and list of your dogs|
 | GET | '/profile/edit' | Edit your own profile - location,|
 | PUT | '/profile' | Update your own profile |
-| DELETE | '/profile' | Delete your own profile |
+| DELETE | '/profile' √| Delete your own profile |
 | GET | '/profile/dogs/new' | Form to create a new dog on your own profile, posts to profile/new|
 | POST | '/profile/dogs/newd' | Create one of your dog's profile |
 | ----------- | ----------- | ----------- |
