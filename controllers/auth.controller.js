@@ -8,9 +8,9 @@ const jwt = require('jsonwebtoken')
 // For hashing / encrypting out passwords 
 const bcrypt = require('bcryptjs')
 
-// This will handle stand up
+// This will handle sign up
 exports.signup = (req,res) => {
-    
+
     // we are going to make out user object using the params returned from req
     const user = new User({
         username: req.body.username,
@@ -28,7 +28,7 @@ exports.signup = (req,res) => {
         }
       })
     }
-           
+
 
 exports.signin = (req, res) => {
     User.findOne({
@@ -51,7 +51,7 @@ exports.signin = (req, res) => {
         const passwordIsValid = bcrypt.compareSync(
             req.body.password, // unencrypted pw from req.body
             user.password // encrypted pwd saved in db
-        ) 
+        )
 
         // if password is not valid, we returning invalid password
         //return a boolean

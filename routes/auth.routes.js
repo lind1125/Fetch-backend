@@ -11,11 +11,10 @@ module.exports = function(app) {
         next();
     })
     // set up signup route and pass middlewares to check username,email
-    app.post("/api/auth/signup", 
+    app.post("/auth/signup",
     [verifySignup.checkDuplicateUsernameOrEmail],
     controller.signup
     )
     // handle sign
-    app.post("/api/auth/signin", controller.signin)
+    app.post("/auth/signin", controller.signin)
 }
-

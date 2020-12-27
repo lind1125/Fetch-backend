@@ -24,7 +24,7 @@ db.mongoose.connect(`mongodb://${dbConfig.HOST}:${dbConfig.PORT}/${dbConfig.DB}`
   })
   .then(() => {
     console.log("Successfully connect to MongoDB.");
-    testDog()
+    //testDog()
   })
   .catch(err => {
     console.error("Connection error", err);
