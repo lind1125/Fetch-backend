@@ -13,7 +13,7 @@ verifyWebToken = (req, res, next) => {
         return res.status(403).send({message: "No token provided"})
     }
 
-    // We try to verify the token 
+    // We try to verify the token
     jwt.verify(token, config.secret, (err, decoded) => {
         if (err){
             return res.status(401).send({message: "Unauthorized"})
