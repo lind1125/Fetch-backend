@@ -21,3 +21,11 @@ const test =  async () => {
 
 }
 module.exports = test
+
+// const testDog = () => {
+//   const homer = new Dog({
+//     name: "Homer",
+//     preferences: {min_age: 6, max_age: 10, min_size: "small", max_size:"large"}
+//   })
+//   homer.save()
+// }

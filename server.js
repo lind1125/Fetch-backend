@@ -24,7 +24,7 @@ db.mongoose.connect(`mongodb://${dbConfig.HOST}:${dbConfig.PORT}/${dbConfig.DB}`
   })
   .then(() => {
     console.log("Successfully connect to MongoDB.");
-    test()
+    
   })
   .catch(err => {
     console.error("Connection error", err);
@@ -45,11 +45,3 @@ const PORT = process.env.PORT || 8080
 app.listen(PORT, ()=> {
     console.log(`Server running on ${PORT}`)
 })
-
-// const testDog = () => {
-//   const homer = new Dog({
-//     name: "Homer",
-//     preferences: {min_age: 6, max_age: 10, min_size: "small", max_size:"large"}
-//   })
-//   homer.save()
-// }
