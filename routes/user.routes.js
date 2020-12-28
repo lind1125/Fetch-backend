@@ -11,8 +11,12 @@ module.exports = function(app) {
         next();
     })
 
-    app.get("/api/test/all", controller.allAccess)
+    // app.get("/api/test/all", controller.allAccess)
 
-    app.get("/api/test/user", [authJwt.verifyWebToken], controller.userBoard)
+    // get user's profile and all their dogs
+    app.get("/profile", [authJwt.verifyWebToken], controller.getProfile)
+
+    // delete the user's profile
+    app.delete("/profile",[authJwt.verifyWebToken],controller.deleteProfile)
 
 }
