@@ -66,12 +66,13 @@ exports.signin = (req, res) => {
         })
 
 
-        // seding that response back
+        // sending that response back
         res.status(200).send({
             id: user._id,
             username: user.username,
             email: user.email,
-            accessToken: token
+            accessToken: token,
+            location: user.location
         })
 
     })

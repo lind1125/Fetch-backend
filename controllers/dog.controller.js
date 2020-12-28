@@ -38,3 +38,35 @@ exports.newDog = (req,res) => {
   })
 
 }
+
+
+exports.showDog = (req,res)=>{
+
+  Dog.findOne({
+    _id: req.params.dogid
+  }).exec((err,foundDog)=>{
+    if(err){
+      return res.status(500).send({message:err.message})
+    }
+    if(!foundDog){
+      return res.status(404).send('Dog was not found')
+    }
+    // check if user is the owner of this dog
+    User.findOne({
+      _id : req.userId
+    }).exec((err,user)=>{
+      if(err){
+        return res.status(500).send({message: err.message})
+      }
+      if(!user){
+        return res.status(403).send('You must be logged in to do this?')
+      }
+      // check that the logged in user owns this dog
+      if(user.dogs.includes(foundDog.id)){
+        return res.status(200).send(foundDog)
+      } else {
+        return res.status(403).send('This is not your dog!')
+      }
+    })
+  })
+}
