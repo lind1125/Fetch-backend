@@ -73,7 +73,7 @@ exports.showDog = (req,res)=>{
 
 exports.deleteDog = (req, res)=>{
   console.log('DOG ID:', req.params.dogid)
-  console.log('USER:', req.userId)
+  console.log('', req)
   Dog.deleteOne({
     _id: req.params.dogid
   }).exec(result => {
