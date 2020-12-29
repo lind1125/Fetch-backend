@@ -72,5 +72,15 @@ exports.showDog = (req,res)=>{
 }
 
 exports.deleteDog = (req, res)=>{
-  return res.status(200).send({message: `Ready to delete ${req.params.dogid}!`})
+  console.log('DOG ID:', req.params.dogid)
+  console.log('USER:', req.userId)
+  Dog.deleteOne({
+    _id: req.params.dogid
+  }).exec(result => {
+    console.log(result)
+    // should we redirect here? TODO
+    return res.status(200).send({
+      message: 'Dog deleted successfully'
+    })
+  })
 }
