@@ -20,6 +20,7 @@ module.exports = function(app) {
     // | GET | '/profile/dogs/:dogid/edit' | Form to edit data on one of your dogs |
     // | PUT | '/profile/dogs/:dogid' | Update one of your dog's profiles |
     // | DELETE | '/profile/dogs/:dogid' | Delete one of your dog's profile |
+    app.delete('/profile/dogs/:dogid', [authJwt.verifyWebToken], controller.deleteDog)
     // | GET | '/profile/dogs/:dogid' | View data on one of your dogs (note this has to be below other routes) |
     app.get('/profile/dogs/:dogid',[authJwt.verifyWebToken], controller.showDog)
 

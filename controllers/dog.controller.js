@@ -70,3 +70,7 @@ exports.showDog = (req,res)=>{
     })
   })
 }
+
+exports.deleteDog = (req, res)=>{
+  return res.status(200).send({message: `Ready to delete ${req.params.dogid}!`})
+}
