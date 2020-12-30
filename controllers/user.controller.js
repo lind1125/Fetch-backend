@@ -4,14 +4,11 @@ const db = require('../models/index')
 const User = db.user
 const Dog = db.dog
 
-// exports.allAccess = (req,res) => {
-//     res.status(200).send("public content")
-// }
 
 
 
 
-// Get request to /profile, get's user information and their dogs
+// Get request to /profile, gets user information and their dogs
 exports.getProfile = (req, res) => {
   // get user from header info
   User.findOne({
