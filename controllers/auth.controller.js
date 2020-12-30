@@ -5,7 +5,7 @@ const User = db.user
 
 // this will give access to encode and decode the jwt itself. ( allows us to work with jwt)
 const jwt = require('jsonwebtoken')
-// For hashing / encrypting out passwords 
+// For hashing / encrypting out passwords
 const bcrypt = require('bcryptjs')
 
 // This will handle sign up
@@ -15,7 +15,8 @@ exports.signup = (req,res) => {
     const user = new User({
         username: req.body.username,
         email: req.body.email,
-        password: bcrypt.hashSync(req.body.password, 8)
+        password: bcrypt.hashSync(req.body.password, 8),
+        location: req.body.location
     })
 
     // we save that user, and if there is an error we throw that error
@@ -65,12 +66,13 @@ exports.signin = (req, res) => {
         })
 
 
-        // seding that response back
+        // sending that response back
         res.status(200).send({
             id: user._id,
             username: user.username,
             email: user.email,
-            accessToken: token
+            accessToken: token,
+            location: user.location
         })
 
     })
