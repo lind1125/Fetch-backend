@@ -3,7 +3,6 @@ const bodyParser = require('body-parser')
 const dbConfig = require('./config/db.config')
 const cors = require('cors')
 const mongoose = require("mongoose");
-const test = require('./testDogsandUsers')
 const app = express()
 
 app.use(cors())

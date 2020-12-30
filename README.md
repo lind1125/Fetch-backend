@@ -1,6 +1,12 @@
 # Team-2-Project
 ## Fetch
 
+### Installation instructions:
+
+1. Run `npm i` to install dependencies
+2. **For development purposes:** Open the mongo shell to drop any existing database named Fetch. Run `node seed.js` to seed the database to database named Fetch.
+3. Run `nodemon` to start the server
+
 
 ### Routes:
 
