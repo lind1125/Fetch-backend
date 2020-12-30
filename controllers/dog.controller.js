@@ -71,6 +71,37 @@ exports.showDog = (req,res)=>{
   })
 }
 
+exports.updateDog = (req, res)=>{
+  Dog.updateOne({
+     _id: req.params.dogid
+    },
+    {$set:
+      {
+      name: req.body.name,
+      size: req.body.size,
+      biography: req.body.biography,
+      breed: req.body.breed,
+      temperament: req.body.temperament,
+      age: req.body.age,
+      size: req.body.size,
+      preferences : {
+        min_age: req.body.preferences.min_age,
+        max_age: req.body.preferences.max_age,
+        min_size: req.body.preferences.min_size,
+        max_size: req.body.preferences.max_size
+      }
+    }}
+  ).exec((err)=>{
+    if(err){
+      return res.status(500).send({message: err.message})
+    }
+  })
+  return res.status(200).send({
+    message: 'Dog updated successfully'
+  })
+}
+
+// function to delete a single dog from the database
 exports.deleteDog = (req, res)=>{
   Dog.deleteOne({
     _id: req.params.dogid
@@ -81,3 +112,4 @@ exports.deleteDog = (req, res)=>{
     })
   })
 }
+

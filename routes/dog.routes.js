@@ -19,6 +19,7 @@ module.exports = function(app) {
     // | GET | '/profile/dogs/new' | Form to create a new dog on your own profile, posts to profile/new |
     // | GET | '/profile/dogs/:dogid/edit' | Form to edit data on one of your dogs |
     // | PUT | '/profile/dogs/:dogid' | Update one of your dog's profiles |
+    app.put('/profile/dogs/:dogid', [authJwt.verifyWebToken], controller.updateDog)
     // | DELETE | '/profile/dogs/:dogid' | Delete one of your dog's profile |
     app.delete('/profile/dogs/:dogid', [authJwt.verifyWebToken], controller.deleteDog)
     // | GET | '/profile/dogs/:dogid' | View data on one of your dogs (note this has to be below other routes) |
