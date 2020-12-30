@@ -72,12 +72,9 @@ exports.showDog = (req,res)=>{
 }
 
 exports.deleteDog = (req, res)=>{
-  console.log('DOG ID:', req.params.dogid)
-  console.log('', req)
   Dog.deleteOne({
     _id: req.params.dogid
-  }).exec(result => {
-    console.log(result)
+  }).then(() => {
     // should we redirect here? TODO
     return res.status(200).send({
       message: 'Dog deleted successfully'
