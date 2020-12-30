@@ -14,16 +14,16 @@
 | POST | '/auth/signup' | Signup page √|
 | ------ | ----------- | ----------- |
 | GET | '/profile'  | View your own profile  - index shows your info and list of your dogs √|
-| GET | '/profile/edit' | Edit your own profile - location, username|
+| GET | '/profile/edit' | Edit your own profile - location, username **Frontend only**|
 | PUT | '/profile' | Update your own profile - location, username|
 | DELETE | '/profile'  | Delete your own profile √|
 | ------ | ----------- | ----------- |
-| GET | '/profile/dogs/new' | Form to create a new dog on your own profile, posts to profile/new |
-| POST | '/profile/dogs/' | Create one of your dog's profile |
-| GET | '/profile/dogs/:dogid' | View data on one of your dogs (note this has to be below other routes) |
-| GET | '/profile/dogs/:dogid/edit' | Form to edit data on one of your dogs |
-| PUT | '/profile/dogs/:dogid' | Update one of your dog's profiles |
-| DELETE | '/profile/dogs/:dogid' | Delete one of your dog's profile |
+| GET | '/profile/dogs/new' | Form to create a new dog on your own profile, posts to profile/new **Frontend only** |
+| POST | '/profile/dogs/' | Create one of your dog's profile √|
+| GET | '/profile/dogs/:dogid' | View data on one of your dogs (note this has to be below other routes) √|
+| GET | '/profile/dogs/:dogid/edit' | Form to edit data on one of your dogs **Frontend only**|
+| PUT | '/profile/dogs/:dogid' | Update one of your dog's profiles √|
+| DELETE | '/profile/dogs/:dogid' | Delete one of your dog's profile √|
 | ------- | ----------- | ----------- |
 | GET | '/profile/dogs/:dogid/dogs' | View other dogs (random from database based on criteria) |
 | PUT | '/profile/dogs/:dogid/add' | Add a dog to your dog's likes/rejects (this one I'm not sure about) |

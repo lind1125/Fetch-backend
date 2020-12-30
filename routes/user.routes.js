@@ -11,8 +11,6 @@ module.exports = function(app) {
         next();
     })
 
-    // app.get("/api/test/all", controller.allAccess)
-
     // get user's profile and all their dogs
     app.get("/profile", [authJwt.verifyWebToken], controller.getProfile)
 

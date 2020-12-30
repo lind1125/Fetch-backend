@@ -11,13 +11,11 @@ module.exports = function(app) {
         next();
     })
 
-    // app.get("/api/test/all", controller.allAccess)
 
     // | POST | '/profile/dogs/' | Create one of your dog's profile |
     // add a new dog to the user
     app.post("/profile/dogs", [authJwt.verifyWebToken], controller.newDog)
-    // | GET | '/profile/dogs/new' | Form to create a new dog on your own profile, posts to profile/new |
-    // | GET | '/profile/dogs/:dogid/edit' | Form to edit data on one of your dogs |
+
     // | PUT | '/profile/dogs/:dogid' | Update one of your dog's profiles |
     app.put('/profile/dogs/:dogid', [authJwt.verifyWebToken], controller.updateDog)
     // | DELETE | '/profile/dogs/:dogid' | Delete one of your dog's profile |
