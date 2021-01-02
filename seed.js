@@ -27,12 +27,12 @@ const seed = async () => {
     breed: "Mutt",
     temperament: "Lazy",
     age: "14",
-    size: "Medium",
+    size: 2,
     preferences: {
       min_age: "10",
       max_age: "15",
-      min_size: "Small",
-      max_size: "Large"
+      min_size: 1,
+      max_size: 3
     }
   })
   const dog2 = await Dog.create({
@@ -42,12 +42,12 @@ const seed = async () => {
     breed: "Mutt",
     temperament: "Hyper",
     age: "1",
-    size: "Small",
+    size: 1,
     preferences: {
       min_age: "1",
       max_age: "5",
-      min_size: "Small",
-      max_size: "Large"
+      min_size: 1,
+      max_size: 3
     }
   })
   const dog3 = await Dog.create({
@@ -57,12 +57,12 @@ const seed = async () => {
     breed: "Mutt",
     temperament: "Aggressive",
     age: "6",
-    size: "Medium",
+    size: 2,
     preferences: {
       min_age: "4",
       max_age: "15",
-      min_size: "Medium",
-      max_size: "Large"
+      min_size: 2,
+      max_size: 3
     }
   })
   const dog4 = await Dog.create({
@@ -72,12 +72,12 @@ const seed = async () => {
     breed: "...dingodile",
     temperament: "Chompy",
     age: "4",
-    size: "Large",
+    size: 3,
     preferences: {
       min_age: "2",
       max_age: "15",
-      min_size: "Medium",
-      max_size: "Large"
+      min_size: 2,
+      max_size: 3
     }
   })
   const dog5 = await Dog.create({
@@ -86,13 +86,13 @@ const seed = async () => {
     biography: "Not actually a dog",
     breed: "Snake",
     temperament: "Lazy",
-    age: "4",
-    size: "Small",
+    age: "7",
+    size: 1,
     preferences: {
       min_age: "3",
       max_age: "15",
-      min_size: "Small",
-      max_size: "Large"
+      min_size: 1,
+      max_size: 3
     }
   })
   const dog6 = await Dog.create({
@@ -102,12 +102,12 @@ const seed = async () => {
     breed: "Corgi",
     temperament: "Happy",
     age: "4",
-    size: "Small",
+    size: 1,
     preferences: {
       min_age: "3",
       max_age: "12",
-      min_size: "Small",
-      max_size: "Large"
+      min_size: 1,
+      max_size: 3
     }
   })
 
