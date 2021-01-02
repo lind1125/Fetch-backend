@@ -22,7 +22,7 @@ const seed = async () => {
 
   const dog1 = await Dog.create({
     name: "Alex",
-    picture_url: "www.google.com",
+    picture_url: "https://i.imgur.com/rpQdRoY.jpeg",
     biography: "Cranky old dog",
     breed: "Mutt",
     temperament: "Lazy",
@@ -37,7 +37,7 @@ const seed = async () => {
   })
   const dog2 = await Dog.create({
     name: "Bella",
-    picture_url: "www.google.com",
+    picture_url: "https://i.imgur.com/xrVXDQ2.jpeg",
     biography: "Little Pupper",
     breed: "Mutt",
     temperament: "Hyper",
@@ -52,7 +52,7 @@ const seed = async () => {
   })
   const dog3 = await Dog.create({
     name: "Charles",
-    picture_url: "www.google.com",
+    picture_url: "https://i.imgur.com/sNm8hRR.jpeg",
     biography: "Charles in charge",
     breed: "Mutt",
     temperament: "Aggressive",
@@ -67,7 +67,7 @@ const seed = async () => {
   })
   const dog4 = await Dog.create({
     name: "Dingodile",
-    picture_url: "www.google.com",
+    picture_url: "https://i.imgur.com/TeTwhxN.jpeg",
     biography: "Half dingo half dile",
     breed: "...dingodile",
     temperament: "Chompy",
@@ -82,7 +82,7 @@ const seed = async () => {
   })
   const dog5 = await Dog.create({
     name: "Eugene",
-    picture_url: "www.google.com",
+    picture_url: "https://i.imgur.com/zMs8Sx6.jpeg",
     biography: "Not actually a dog",
     breed: "Snake",
     temperament: "Lazy",
@@ -97,7 +97,7 @@ const seed = async () => {
   })
   const dog6 = await Dog.create({
     name: "Franklin",
-    picture_url: "www.google.com",
+    picture_url: "https://i.imgur.com/q6UTI0W.jpeg",
     biography: "Just happy to be here",
     breed: "Corgi",
     temperament: "Happy",
