@@ -178,9 +178,11 @@ exports.showPreferredDogs = (req, res) => {
         return res.status(403).send('This is not your dog!')
       }
     })
-    console.log(foundDog.preferences)
+    let dogPrefs = foundDog.preferences
+    console.log(dogPrefs.min_age)
+    // find dogs in the dogs DB where age and size are within the range of foundDog's preferences
+    //Dog.find({ age: {$gte: dogPrefs.min_age, $lte: dogPrefs.max_age }})
   }) 
-  // find dogs in the dogs DB where age and size are within the range of foundDog's preferences
 
 }
 
