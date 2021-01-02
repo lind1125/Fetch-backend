@@ -181,8 +181,24 @@ exports.showPreferredDogs = (req, res) => {
     let dogPrefs = foundDog.preferences
     console.log(dogPrefs.min_age)
     // find dogs in the dogs DB where age and size are within the range of foundDog's preferences
-    //Dog.find({ age: {$gte: dogPrefs.min_age, $lte: dogPrefs.max_age }})
+    Dog.find({
+      _id: {$ne: req.params.dogid },
+      age: { $gte: dogPrefs.min_age, $lte: dogPrefs.max_age },
+      size: { $gte: dogPrefs.min_size, $lte: dogPrefs.max_size },
+    }).exec((err, results) => {
+      if (err) {
+        return res.status(500).send({
+          message: err.message
+        })
+      }
+      if (!results) {
+        return res.status(404).send('No dogs found')
+      }
+      else {
+        // return res.status(200).send(results)
+        console.log('These are good dogs', results)
+      }
+    })    
   }) 
-
 }
 
