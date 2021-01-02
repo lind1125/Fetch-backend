@@ -15,6 +15,8 @@ module.exports = function(app) {
     // | POST | '/profile/dogs/' | Create one of your dog's profile |
     // add a new dog to the user
     app.post("/profile/dogs", [authJwt.verifyWebToken], controller.newDog)
+    // PUT add a dog to userDog's liked - requires dogid on the form body as hidden input
+    app.put('/profile/dogs/:dogid/like',[authJwt.verifyWebToken],controller.likeDog)
 
     // | PUT | '/profile/dogs/:dogid' | Update one of your dog's profiles |
     app.put('/profile/dogs/:dogid', [authJwt.verifyWebToken], controller.updateDog)
@@ -23,5 +25,6 @@ module.exports = function(app) {
     // | GET | '/profile/dogs/:dogid' | View data on one of your dogs (note this has to be below other routes) |
     app.get('/profile/dogs/:dogid',[authJwt.verifyWebToken], controller.showDog)
 
-
+    // PUT add a dog to userDog's reject - requires dogid on the form body as hidden input
+    app.put('/profile/dogs/:dogid/reject',[authJwt.verifyWebToken],controller.rejectDog)
 }

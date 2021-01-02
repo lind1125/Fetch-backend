@@ -145,3 +145,37 @@ exports.deleteDog = (req, res) => {
     }
   })
 }
+
+
+
+exports.rejectDog = (req,res) => {
+  console.log(req.body.doToReject)
+  // find the dog from the form
+  Dog.findOne({_id:req.body.dogToReject}).exec((err,foundDog)=>{
+    if(!foundDog){
+      return res.status(404).send({message:"Dog not found"})
+    }
+    console.log(foundDog)
+    // find and update the userDog
+    Dog.findOneAndUpdate({_id:req.params.dogid},{$push :{rejected : foundDog}},{useFindAndModify:false, new:true}).then(data=>{
+      console.log(data)
+      res.send({message:"Added dog to rejected"})
+    })
+  })
+}
+
+exports.likeDog = (req,res) => {
+  console.log(req.body.dogToLike)
+  // find the dog from the form
+  Dog.findOne({_id:req.body.dogToLike}).exec((err,foundDog)=>{
+    if(!foundDog){
+      return res.status(404).send({message:"Dog not found"})
+    }
+    console.log(foundDog)
+    // find and update the userDog
+    Dog.findOneAndUpdate({_id:req.params.dogid},{$push :{liked : foundDog}},{useFindAndModify:false, new:true}).then(data=>{
+      console.log(data)
+      res.send({message:"Added dog to liked"})
+    })
+  })
+}
