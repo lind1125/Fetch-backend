@@ -9,7 +9,7 @@ const DogSchema = new mongoose.Schema({
    temperament: String,
    location: String, // passed down from User
    age: Number,
-   size: Number, // string values from front end will be converted to numbers (e.g. "small" = 1)
+   size: Number, // (e.g. "small" = 1)
    preferences: {
      min_age: Number,
      max_age: Number,
