@@ -12,7 +12,7 @@ checkDuplicateUsernameOrEmail = (req, res, next) => {
             res.status(500).send({message: err})
             return
         }
-        
+
         if (user) {
             res.status(400).send({message: "failed, This user already exist"})
         }
@@ -22,25 +22,25 @@ checkDuplicateUsernameOrEmail = (req, res, next) => {
         email: req.body.email
       }).exec((err, user) => {
         if (err) {
-          res.status(500).send({ message: err });
-          return;
+          return res.status(500).send({ message: err });
+        
         }
 
         if (user) {
-          res.status(400).send({ message: "Failed! Email is already in use!" });
-          return;
+          return res.status(400).send({ message: "Failed! Email is already in use!" });
+
         }
-  
+
             next();
         });
         });
     };
-  
 
-  
+
+
   const verifySignUp = {
     checkDuplicateUsernameOrEmail,
   };
 
-  
+
   module.exports = verifySignUp;
