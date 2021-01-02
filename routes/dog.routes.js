@@ -18,10 +18,14 @@ module.exports = function(app) {
 
     // | PUT | '/profile/dogs/:dogid' | Update one of your dog's profiles |
     app.put('/profile/dogs/:dogid', [authJwt.verifyWebToken], controller.updateDog)
+
     // | DELETE | '/profile/dogs/:dogid' | Delete one of your dog's profile |
     app.delete('/profile/dogs/:dogid', [authJwt.verifyWebToken], controller.deleteDog)
+    
+    // | GET | 'profile/dogs/:dogid/dogs | View other dogs from database based on preferences
+    app.get('/profile/dogs/:dogid/dogs', [authJwt.verifyWebToken], controller.showPreferredDogs)
+    
     // | GET | '/profile/dogs/:dogid' | View data on one of your dogs (note this has to be below other routes) |
     app.get('/profile/dogs/:dogid',[authJwt.verifyWebToken], controller.showDog)
-
 
 }
