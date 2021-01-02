@@ -4,7 +4,7 @@ const db = require('../models/index')
 const User = db.user
 const Dog = db.dog
 
-
+// function to add a new dog to a user
 exports.newDog = (req, res) => {
   // findone returns the found object
   User.findOne({
@@ -43,7 +43,7 @@ exports.newDog = (req, res) => {
 
 }
 
-
+//function to show a single dog associated with the user
 exports.showDog = (req, res) => {
   Dog.findOne({
     _id: req.params.dogid
@@ -146,6 +146,7 @@ exports.deleteDog = (req, res) => {
   })
 }
 
+//function to query the dogs database for dogs matching userDog's preferences
 exports.showPreferredDogs = (req, res) => {
   // get the user dog's preferences
   Dog.findOne({
@@ -180,7 +181,7 @@ exports.showPreferredDogs = (req, res) => {
     })
     let dogPrefs = foundDog.preferences
     console.log(dogPrefs.min_age)
-    // find dogs in the dogs DB where age and size are within the range of foundDog's preferences
+    // find dogs (excluding the foundDog) in the dogs DB where age and size are within the range of foundDog's preferences
     Dog.find({
       _id: {$ne: req.params.dogid },
       age: { $gte: dogPrefs.min_age, $lte: dogPrefs.max_age },
