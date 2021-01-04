@@ -1,4 +1,4 @@
-const { authJwt } = require('../middlewares')
+const { authJwt, verifySignup } = require('../middlewares')
 const controller = require('../controllers/user.controller')
 
 module.exports = function(app) {
@@ -16,5 +16,9 @@ module.exports = function(app) {
 
     // delete the user's profile
     app.delete("/profile",[authJwt.verifyWebToken],controller.deleteProfile)
+
+
+    // update the user's profile - check duplicate username or email!!
+    app.put("/profile",[authJwt.verifyWebToken, verifySignup.checkDuplicateUsernameOrEmail],controller.updateProfile)
 
 }
