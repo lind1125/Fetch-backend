@@ -8,7 +8,7 @@ const Dog = db.dog
 
 
 
-// Get request to /profile, gets user information and their dogs
+// Get request to /profile, gets user information and their dogs - return user document
 exports.getProfile = (req, res) => {
   // get user from header info
   User.findOne({
@@ -22,7 +22,6 @@ exports.getProfile = (req, res) => {
           message: err.message
         })
       }
-      console.log(user)
       return res.status(200).send(user)
     })
 }
@@ -61,3 +60,19 @@ exports.deleteProfile = (req, res) => {
             })
       })
     }
+
+
+// Update the user's profile from the form - they can update email address and location? 
+exports.updateProfile = (req,res) => {
+  User.updateOne({_id:req.userId},
+  {
+    email: req.body.email,
+    location: req.body.location
+  },(err,result)=>{
+    if(err){
+      return res.status(500).send({message:err.message})
+    } else{
+      return res.send({message:'Updated User Successfully'})
+    }
+  })
+}
