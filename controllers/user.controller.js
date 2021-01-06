@@ -62,7 +62,7 @@ exports.deleteProfile = (req, res) => {
     }
 
 
-// Update the user's profile from the form - they can update email address and location? 
+// Update the user's profile from the form - they can update email address and location?
 exports.updateProfile = (req,res) => {
   User.updateOne({_id:req.userId},
   {
