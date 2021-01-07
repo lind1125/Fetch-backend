@@ -64,15 +64,34 @@ exports.deleteProfile = (req, res) => {
 
 // Update the user's profile from the form - they can update email address and location?
 exports.updateProfile = (req,res) => {
-  User.updateOne({_id:req.userId},
-  {
-    email: req.body.email,
-    location: req.body.location
-  },(err,result)=>{
-    if(err){
-      return res.status(500).send({message:err.message})
+  User.findOne({
+    email: req.body.email
+  }).exec((err, user) => {
+    if (err) {
+      res.status(500).send({
+        message: err
+      });
+      return
+    }
+    // if we found a user with that email address, check if it's the logged in user
+    if (user && user._id.toString() !== req.userId) {
+      res.status(400).send({
+        message: "Failed! Email is already in use!"
+      });
+      return
     } else{
-      return res.send({message:'Updated User Successfully'})
+      User.updateOne({_id:req.userId},
+      {
+        email: req.body.email,
+        location: req.body.location
+      },(err,result)=>{
+        if(err){
+          return res.status(500).send({message:err.message})
+        } else{
+          return res.send({message:'Updated User Successfully'})
+        }
+      })
     }
   })
+
 }
