@@ -18,7 +18,7 @@ module.exports = function(app) {
     app.delete("/profile",[authJwt.verifyWebToken],controller.deleteProfile)
 
 
-    // update the user's profile - check duplicate username or email!!
-    app.put("/profile",[authJwt.verifyWebToken, verifySignup.checkDuplicateUsernameOrEmail],controller.updateProfile)
+    // update the user's profile 
+    app.put("/profile",[authJwt.verifyWebToken],controller.updateProfile)
 
 }
