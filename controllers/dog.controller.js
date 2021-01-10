@@ -6,6 +6,11 @@ const Dog = db.dog
 
 // function to add a new dog to a user
 exports.newDog = (req, res) => {
+  // check against age/size
+  if (req.body.min_age>req.body.max_age || req.body.min_size>req.body.max_size){
+    return res.status(500).send({message: "Check you min/max ages and sizes"})
+  }
+  
   // findone returns the found object
   User.findOne({
     _id: req.userId
@@ -200,8 +205,8 @@ exports.showPreferredDogs = (req, res) => {
         // return res.status(200).send(results)
         console.log('These are good dogs', results)
       }
-    })    
-  }) 
+    })
+  })
 }
 
 
@@ -238,4 +243,3 @@ exports.likeDog = (req,res) => {
     })
   })
 }
-
