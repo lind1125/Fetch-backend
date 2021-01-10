@@ -10,7 +10,7 @@ exports.newDog = (req, res) => {
   if (req.body.min_age>req.body.max_age || req.body.min_size>req.body.max_size){
     return res.status(500).send({message: "Check you min/max ages and sizes"})
   }
-  
+
   // findone returns the found object
   User.findOne({
     _id: req.userId
@@ -186,24 +186,31 @@ exports.showPreferredDogs = (req, res) => {
       }
     })
     let dogPrefs = foundDog.preferences
-    console.log(dogPrefs.min_age)
+    //console.log(dogPrefs.min_age)
     // find dogs (excluding the foundDog) in the dogs DB where age and size are within the range of foundDog's preferences
+    //console.log(req.params.dogid)
+    console.log(foundDog.liked)
     Dog.find({
-      _id: {$ne: req.params.dogid },
-      age: { $gte: dogPrefs.min_age, $lte: dogPrefs.max_age },
-      size: { $gte: dogPrefs.min_size, $lte: dogPrefs.max_size },
+      $and : [ {_id : {$ne: req.params.dogid}},
+              { age : {$gte : dogPrefs.min_age}},
+              {age : {$lte : dogPrefs.max_age}},
+              {size: {$gte: dogPrefs.min_size}},
+              {size: {$lte: dogPrefs.max_size}},
+              {_id : {$nin : foundDog.liked}},
+              {_id: {$nin: foundDog.rejected}}
+      ]
     }).exec((err, results) => {
       if (err) {
         return res.status(500).send({
           message: err.message
         })
       }
-      if (!results) {
+      if (!results || results.length===0) {
         return res.status(404).send('No dogs found')
       }
       else {
-        // return res.status(200).send(results)
         console.log('These are good dogs', results)
+        return res.status(200).send(results)
       }
     })
   })
