@@ -26,6 +26,7 @@ exports.newDog = (req, res) => {
     // All of these need to come from the form except location
     Dog.create({
       name: req.body.name,
+      picture_url: req.body.picture_url,
       size: req.body.size,
       biography: req.body.biography,
       breed: req.body.breed,
@@ -98,6 +99,7 @@ exports.updateDog = (req, res) => {
       }, {
         $set: {
           name: req.body.name,
+          picture_url: req.body.picture_url,
           size: req.body.size,
           biography: req.body.biography,
           breed: req.body.breed,
