@@ -1,6 +1,22 @@
 # Team-2-Project
 ## Fetch
 
+[**Link to Frontend Repo**](https://github.com/SFX818/Team-2-frontend)
+
+[**Deployed API (TBD)**](https://www.heroku.com/) 
+
+### Technologies used:
+
+* Node.js 
+* Mongoose
+* Express
+* bcryptjs
+* JSON web tokens
+* CORS
+
+### General Approach
+
+
 ### Installation instructions:
 
 1. Run `npm i` to install dependencies
