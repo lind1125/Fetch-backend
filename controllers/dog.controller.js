@@ -253,6 +253,7 @@ exports.likeDog = (req,res) => {
 
 
 exports.getMatches = (req,res) => {
+  // TODO check user owns this dog
   Dog.findOne({
     _id : req.params.dogid
   }).populate('liked', '-__v')

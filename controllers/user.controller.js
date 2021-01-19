@@ -51,8 +51,6 @@ exports.deleteProfile = (req, res) => {
               User.deleteOne({
                 _id: req.userId
               }).then(result => {
-                console.log(result)
-                // should we redirect here? TODO
                 return res.status(200).send({
                   message: "deleted user"
                 })
@@ -83,7 +81,7 @@ exports.updateProfile = (req,res) => {
       User.updateOne({_id:req.userId},
       {
         email: req.body.email,
-        location: req.body.location
+        location: req.body.location //TODO update user's dogs locations
       },(err,result)=>{
         if(err){
           return res.status(500).send({message:err.message})
