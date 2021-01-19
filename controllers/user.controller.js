@@ -85,7 +85,15 @@ exports.updateProfile = (req,res) => {
       },(err,result)=>{
         if(err){
           return res.status(500).send({message:err.message})
-        } else{
+        } else if (user.dogs.length>0){
+          // update the user's dogs' location
+          Dog.update({_id: {$in : user.dogs}},{$set:{location:req.body.location}},{$multi:true},(err,result)=>{
+            if(err){
+              return res.status(500).send({message: err.message})
+            }
+            return res.send({message:'Updated User Successfully'})
+          })
+        } else {
           return res.send({message:'Updated User Successfully'})
         }
       })
