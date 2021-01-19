@@ -188,10 +188,7 @@ exports.showPreferredDogs = (req, res) => {
       }
     })
     let dogPrefs = foundDog.preferences
-
     // find dogs (excluding the foundDog) in the dogs DB where age and size are within the range of foundDog's preferences
-
-
     Dog.find({
       $and : [ {_id : {$ne: req.params.dogid}},
               { age : {$gte : dogPrefs.min_age}},
@@ -211,7 +208,6 @@ exports.showPreferredDogs = (req, res) => {
         return res.status(404).send('No dogs found')
       }
       else {
-
         return res.status(200).send(results)
       }
     })
@@ -224,13 +220,15 @@ exports.showPreferredDogs = (req, res) => {
 exports.rejectDog = (req,res) => {
   // find the dog from the form
   Dog.findOne({_id:req.body.dogToReject}).exec((err,foundDog)=>{
-    if(!foundDog || err){
+    if(err){
+      return res.status(500).send({message:err.message})
+    }
+    else if (!foundDog){
       return res.status(404).send({message:"Dog not found"})
     }
-
     // find and update the userDog
-    Dog.findOneAndUpdate({_id:req.params.dogid},{$push :{rejected : foundDog}},{useFindAndModify:false, new:true}).then(data=>{
-
+    Dog.findOneAndUpdate({_id:req.params.dogid},{$push :{rejected : foundDog}},{useFindAndModify:false, new:true})
+      .then(data=>{
       res.send({message:"Added dog to rejected"})
     })
   })
@@ -239,13 +237,15 @@ exports.rejectDog = (req,res) => {
 exports.likeDog = (req,res) => {
   // find the dog from the form
   Dog.findOne({_id:req.body.dogToLike}).exec((err,foundDog)=>{
-    if(!foundDog || err){
+    if(err){
+      return res.status(500).send({message:err.message})
+    }
+    else if (!foundDog){
       return res.status(404).send({message:"Dog not found"})
     }
-
     // find and update the userDog
-    Dog.findOneAndUpdate({_id:req.params.dogid},{$push :{liked : foundDog}},{useFindAndModify:false, new:true}).then(data=>{
-
+    Dog.findOneAndUpdate({_id:req.params.dogid},{$push :{liked : foundDog}},{useFindAndModify:false, new:true})
+      .then(data=>{
       res.send({message:"Added dog to liked"})
     })
   })
@@ -257,8 +257,11 @@ exports.getMatches = (req,res) => {
     _id : req.params.dogid
   }).populate('liked', '-__v')
   .exec((err,foundDog)=>{
-    if(err || !foundDog){
+    if(err){
       return res.status(500).send({message: err.message})
+    }
+    else if(!foundDog){
+      return res.status(404).send({message: "Dog not found!"})
     }
     const likedDogs = foundDog.liked
     const matches = []
