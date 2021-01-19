@@ -3,7 +3,7 @@
 
 [**Link to Frontend Repo**](https://github.com/SFX818/Team-2-frontend)
 
-[**Deployed API (TBD)**](https://www.heroku.com/) 
+[**Deployed API](https://fetchbackend.herokuapp.com/)
 
 ---
 
@@ -26,7 +26,7 @@
   * bcryptjs
   * JSON web tokens
   * CORS
-  
+
 ---
 
 ### General Approach
@@ -58,7 +58,7 @@ With the dog model as its own document, it can more easily be queried for the va
 | ------ | ----------- | ----------- |
 | GET | '/profile'  | View your own profile  - index shows your info and list of your dogs √|
 | GET | '/profile/edit' | Edit your own profile - location, username **Frontend only**|
-| PUT | '/profile' | Update your own profile - location, username|
+| PUT | '/profile' | Update your own profile - location, username √|
 | DELETE | '/profile'  | Delete your own profile √|
 | ------ | ----------- | ----------- |
 | GET | '/profile/dogs/new' | Form to create a new dog on your own profile, posts to profile/new **Frontend only** |
@@ -69,7 +69,8 @@ With the dog model as its own document, it can more easily be queried for the va
 | DELETE | '/profile/dogs/:dogid' | Delete one of your dog's profile √|
 | ------- | ----------- | ----------- |
 | GET | '/profile/dogs/:dogid/dogs' | View other dogs (random from database based on criteria) |
-| PUT | '/profile/dogs/:dogid/add' | Add a dog to your dog's likes/rejects (this one I'm not sure about) |
+| PUT | '/profile/dogs/:dogid/reject' | Add a dog to your dog's rejects |
+| PUT | '/profile/dogs/:dogid/likr' | Add a dog to your dog's likes  |
 | GET | '/profile/dogs/:dogid/matches' | View your dog's matches |
 
 ---
