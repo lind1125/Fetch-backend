@@ -5,17 +5,37 @@
 
 [**Deployed API (TBD)**](https://www.heroku.com/) 
 
+---
+
 ### Technologies used:
 
-* Node.js 
-* Mongoose
-* Express
-* bcryptjs
-* JSON web tokens
-* CORS
+* **RUNTIME ENVIRONMENT**
+
+  * Node.js
+
+* **FRAMEWORK**
+
+  * Express
+
+* **DATABASE**
+
+  * MongoDB/Mongoose
+
+* **Auth/Security**
+
+  * bcryptjs
+  * JSON web tokens
+  * CORS
+  
+---
 
 ### General Approach
 
+The Fetch app is, in short, Tinder for dog playdates. A user will create a profile, then create a profile for each dog that they would like to find playmates for. This meant that the primary drivers for the backend architecture was the idea of a single user of the app having multiple dogs as well as the ubiquity of a single dog's profile throughout the app. What this means in practice is that the user schema itself is very limited in its content; the only field not relate to signin/signup is the `location` field. The dog model was built separately and is associated with the user through referencing.
+
+With the dog model as its own document, it can more easily be queried for the various ways in which the app will serve dog information and keep the code more DRY. When serving random dogs that meet the user's criteria, categorizing a dog as liked or rejected by the user dog, or displaying matche, the app only needs to query the user seeking this information, rather than the parent user of each dog being displayed.
+
+---
 
 ### Installation instructions:
 
@@ -23,6 +43,7 @@
 2. **For development purposes:** Open the mongo shell to drop any existing database named Fetch. Run `node seed.js` to seed the database to database named Fetch.
 3. Run `nodemon` to start the server
 
+---
 
 ### Routes:
 
@@ -51,7 +72,7 @@
 | PUT | '/profile/dogs/:dogid/add' | Add a dog to your dog's likes/rejects (this one I'm not sure about) |
 | GET | '/profile/dogs/:dogid/matches' | View your dog's matches |
 
-
+---
 
 ### ODM:
 
@@ -63,10 +84,8 @@ https://lucid.app/lucidchart/46ce42b4-8d28-4635-8980-9d130cf57498/edit?page=0_0#
 
 
 
-link to frontend repo
+
 link to deployed api
 explanation of backend tech used
-general approach (a couple paragraphs)
-installation instructions
 table with RESTful routes & resources available at each endpoint
 unsolved problems / major hurdles
