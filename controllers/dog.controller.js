@@ -140,7 +140,6 @@ exports.deleteDog = (req, res) => {
       Dog.deleteOne({
         _id: req.params.dogid
       }).then(() => {
-        // should we redirect here? TODO
         return res.status(200).send({
           message: 'Dog deleted successfully'
         })
@@ -214,9 +213,7 @@ exports.showPreferredDogs = (req, res) => {
   })
 }
 
-
-
-
+// function to add a dog to the userDog's rejected list
 exports.rejectDog = (req,res) => {
   // find the dog from the form
   Dog.findOne({_id:req.body.dogToReject}).exec((err,foundDog)=>{
@@ -234,6 +231,7 @@ exports.rejectDog = (req,res) => {
   })
 }
 
+// function to add a dog to the userDog's liked list
 exports.likeDog = (req,res) => {
   // find the dog from the form
   Dog.findOne({_id:req.body.dogToLike}).exec((err,foundDog)=>{
@@ -251,27 +249,39 @@ exports.likeDog = (req,res) => {
   })
 }
 
-
+// function to get all the matches for a given dog as req.params,dogid
 exports.getMatches = (req,res) => {
-  // TODO check user owns this dog
-  Dog.findOne({
-    _id : req.params.dogid
-  }).populate('liked', '-__v')
-  .exec((err,foundDog)=>{
-    if(err){
+  // check user owns this dog
+  User.findOne({
+    _id : req.userId
+  }).exec((err,user)=>{
+    if (err){
       return res.status(500).send({message: err.message})
+    } else if (!user){
+      return res.status(403).send('You must be logged in to do this!')
+    } else if (!user.dogs || !user.dogs.includes(req.params.dogid)){
+      return res.status(403).send('This is not your dog!')
+    } else {
+      Dog.findOne({
+        _id : req.params.dogid
+      }).populate('liked', '-__v')
+      .exec((err,foundDog)=>{
+        if(err){
+          return res.status(500).send({message: err.message})
+        }
+        else if(!foundDog){
+          return res.status(404).send({message: "Dog not found!"})
+        }
+        const likedDogs = foundDog.liked
+        const matches = []
+        for (dog of likedDogs){
+          // if the dog likes you back, add it to the matches array
+          if (dog.liked.includes(req.params.dogid)){
+            matches.push(dog)
+          }
+        }
+        return res.send(matches)
+      })
     }
-    else if(!foundDog){
-      return res.status(404).send({message: "Dog not found!"})
-    }
-    const likedDogs = foundDog.liked
-    const matches = []
-    for (dog of likedDogs){
-      // if the dog likes you back, add it to the matches array
-      if (dog.liked.includes(req.params.dogid)){
-        matches.push(dog)
-      }
-    }
-    return res.send(matches)
   })
 }

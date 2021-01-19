@@ -81,7 +81,7 @@ exports.updateProfile = (req,res) => {
       User.updateOne({_id:req.userId},
       {
         email: req.body.email,
-        location: req.body.location //TODO update user's dogs locations
+        location: req.body.location
       },(err,result)=>{
         if(err){
           return res.status(500).send({message:err.message})
