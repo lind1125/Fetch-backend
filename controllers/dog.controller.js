@@ -86,6 +86,7 @@ exports.showDog = (req, res) => {
 
 // function to update a single dog's profile
 exports.updateDog = (req, res) => {
+  console.log('BACKEND BODY: ', req.body)
   User.findOne({
     _id: req.userId
   }).exec((err, user) => {
@@ -107,10 +108,10 @@ exports.updateDog = (req, res) => {
           age: req.body.age,
           size: req.body.size,
           preferences: {
-            min_age: req.body.preferences.min_age,
-            max_age: req.body.preferences.max_age,
-            min_size: req.body.preferences.min_size,
-            max_size: req.body.preferences.max_size
+            min_age: req.body.min_age,
+            max_age: req.body.max_age,
+            min_size: req.body.min_size,
+            max_size: req.body.max_size
           }
         }
       }).exec((err) => {
