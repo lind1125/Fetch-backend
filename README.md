@@ -51,20 +51,20 @@ With the dog model as its own document, it can more easily be queried for the va
 | Verb | Endpoint | Action |
 | ----------- | ----------- | ----------- |
 | GET | '/' | Home page |
-| GET | '/auth/signin' | Signin page **Frontend only**|
+| GET | '/auth/signin' | Signin page | **Frontend only**|
 | POST | '/auth/signin' | Signin page post route √|
-| GET | '/auth/signup' | Signup page **Frontend only**|
+| GET | '/auth/signup' | Signup page | **Frontend only**|
 | POST | '/auth/signup' | Signup page √|
 | ------ | ----------- | ----------- |
 | GET | '/profile'  | View your own profile  - index shows your info and list of your dogs √|
-| GET | '/profile/edit' | Edit your own profile - location, username **Frontend only**|
+| GET | '/profile/edit' | Edit your own profile - location, username | **Frontend only**|
 | PUT | '/profile' | Update your own profile - location, username √|
 | DELETE | '/profile'  | Delete your own profile √|
 | ------ | ----------- | ----------- |
-| GET | '/profile/dogs/new' | Form to create a new dog on your own profile, posts to profile/new **Frontend only** |
+| GET | '/profile/dogs/new' | Form to create a new dog on your own profile, posts to profile/new | **Frontend only** |
 | POST | '/profile/dogs/' | Create one of your dog's profile √|
 | GET | '/profile/dogs/:dogid' | View data on one of your dogs (note this has to be below other routes) √|
-| GET | '/profile/dogs/:dogid/edit' | Form to edit data on one of your dogs **Frontend only**|
+| GET | '/profile/dogs/:dogid/edit' | Form to edit data on one of your dogs | **Frontend only**|
 | PUT | '/profile/dogs/:dogid' | Update one of your dog's profiles √|
 | DELETE | '/profile/dogs/:dogid' | Delete one of your dog's profile √|
 | ------- | ----------- | ----------- |
