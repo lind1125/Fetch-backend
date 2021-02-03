@@ -51,9 +51,9 @@ With the dog model as its own document, it can more easily be queried for the va
 | Verb | Endpoint | Action |
 | ----------- | ----------- | ----------- |
 | GET | '/' | Home page |
-| GET | '/auth/signin' | Signin page √|
+| GET | '/auth/signin' | Signin page **Frontend only**|
 | POST | '/auth/signin' | Signin page post route √|
-| GET | '/auth/signup' | Signup page √|
+| GET | '/auth/signup' | Signup page **Frontend only**|
 | POST | '/auth/signup' | Signup page √|
 | ------ | ----------- | ----------- |
 | GET | '/profile'  | View your own profile  - index shows your info and list of your dogs √|
@@ -70,7 +70,7 @@ With the dog model as its own document, it can more easily be queried for the va
 | ------- | ----------- | ----------- |
 | GET | '/profile/dogs/:dogid/dogs' | View other dogs (random from database based on criteria) |
 | PUT | '/profile/dogs/:dogid/reject' | Add a dog to your dog's rejects |
-| PUT | '/profile/dogs/:dogid/likr' | Add a dog to your dog's likes  |
+| PUT | '/profile/dogs/:dogid/like' | Add a dog to your dog's likes  |
 | GET | '/profile/dogs/:dogid/matches' | View your dog's matches |
 
 ---
