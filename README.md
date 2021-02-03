@@ -86,7 +86,6 @@ https://lucid.app/lucidchart/46ce42b4-8d28-4635-8980-9d130cf57498/edit?page=0_0#
 
 
 
-link to deployed api
-explanation of backend tech used
-table with RESTful routes & resources available at each endpoint
-unsolved problems / major hurdles
+* link to deployed api
+
+* unsolved problems / major hurdles
