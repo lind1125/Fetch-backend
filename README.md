@@ -3,7 +3,7 @@
 
 [**Link to Frontend Repo**](https://github.com/SFX818/Team-2-frontend)
 
-[**Deployed API](https://fetchbackend.herokuapp.com/)
+[**Deployed API**](https://fetchbackend.herokuapp.com/)
 
 ---
 
