@@ -4,7 +4,7 @@ const mongoose = require("mongoose");
 const db = require('./models/')
 const Dog = db.dog
 const User = db.user
-
+dbURI = process.env.MONGODB_URI || `mongodb://${dbConfig.HOST}:${dbConfig.PORT}/${dbConfig.DB}`
 
 const seed = async () => {
   const usersArray = [];
@@ -144,7 +144,7 @@ const seed = async () => {
 
 
 // connect to database and run the seed file. Make sure you're not connected to database already via nodemon.
-db.mongoose.connect(`mongodb://${dbConfig.HOST}:${dbConfig.PORT}/${dbConfig.DB}`, {
+db.mongoose.connect(dbURI, {
     useNewUrlParser: true,
     useUnifiedTopology: true
   })
