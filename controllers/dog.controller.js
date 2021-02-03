@@ -94,6 +94,7 @@ exports.updateDog = (req, res) => {
     }
     // check if user owns the dog trying to be updated
     if (user.dogs.includes(req.params.dogid)) {
+      console.log(req.body)
       Dog.updateOne({
         _id: req.params.dogid
       }, {
@@ -107,10 +108,10 @@ exports.updateDog = (req, res) => {
           age: req.body.age,
           size: req.body.size,
           preferences: {
-            min_age: req.body.preferences.min_age,
-            max_age: req.body.preferences.max_age,
-            min_size: req.body.preferences.min_size,
-            max_size: req.body.preferences.max_size
+            min_age: req.body.min_age,
+            max_age: req.body.max_age,
+            min_size: req.body.min_size,
+            max_size: req.body.max_size
           }
         }
       }).exec((err) => {
