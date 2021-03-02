@@ -1,7 +1,7 @@
 # Team-2-Project
 ## Fetch
 
-[**Link to Frontend Repo**](https://github.com/SFX818/Team-2-frontend)
+[**Link to Frontend Repo**](https://github.com/lind1125/Fetch-Frontend)
 
 [**Deployed API**](https://fetchbackend.herokuapp.com/)
 
